@@ -1,39 +1,37 @@
-// DATA TYPES IN JS
-// Declaring Objects and accessing Object property and Method's using 
-// the dot notation. 
+let todolist = new Array();
+
+// function addItems(arr,item){
+//     arr.push(item);
+//     console.log(arr);
+// }
+
+// addItems(todolist,"Make Coffe");
+// addItems(todolist,"Walk the dog");
 
 
-let person = {
-    name:'John',
-    age: 34,
-    sex: 'Male',
-    student: true,
-    spouse : false,
-    department:['payroll','benefits','pension'],
-    hours: function workhours(hourworked,numOfDays){
-        let totalHours = hourworked * numOfDays;
-        return totalHours;
-    },
-    function () {
-        console.log("Hello World");
-        let a = 5; let b = 5;
-        return a * b;
-    }
+function addItems(arr2){
+    let userInput;
+userOption = parseInt(prompt('To added Items to your todolist press 1 or 2 to exit'),10);
+
+switch (userOption) {
+    case 1:
+    userInput = prompt("Enter your todo Item"); 
+    arr2.push(userInput);
+    console.log(`You added "${arr2[arr2.length - 1]}" to your to do list`);
+    addItems(arr2);
+        break;
+
+    case 2:
+        console.log(`You have the following items in your Todo list: ${arr2}`)
+        break;    
+    default:
+        break;
+}
+userOption == 1
+
+//console.log(arr2);
 }
 
+addItems(todolist);
 
-console.log(person.function());
-console.log(person.hours(7.50,30));
-console.log(person.name);
-console.log(person.age);
-console.log(person.department['sort']());
-for(let i = 0 ; i<person.department.length;i++)
-{   person.department.sort();
-    person.department;
-    console.log(person.department[i]);;
-}
-console.log(person.function());
-console.log(person.sex);
-console.log(person.student);
-console.log(person.spouse);
-console.log(person);
+console.log(todolist);

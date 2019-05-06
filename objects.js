@@ -37,3 +37,32 @@ console.log(person.sex);
 console.log(person.student);
 console.log(person.spouse);
 console.log(person);
+
+
+
+
+
+// Basic syntax for Ternary Operators.
+// conditions? (run if true) : (run if false); 
+//conditons? action item if conditions are true : action items if conditions are false
+result%2===0 ? console.log("This is an even number") : console.log("This is an odd number");
+
+let expression =  result%2;
+
+function response(text) {
+ console.log(text + "Number ");
+}
+
+expression === 0? response("even") : response("old");
+
+expression = 0? response("even") : response("old");
+
+let number1 = 0;
+
+if (number1){
+    console.log("This is a true value");
+}
+
+else console.log("This is not true");
+
+ let result = 9 ;
