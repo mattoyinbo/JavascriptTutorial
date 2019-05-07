@@ -10,15 +10,16 @@ let todolist = new Array();
 
 
 function addItems(arr2){
-    let userInput;
-userOption = parseInt(prompt('To added Items to your todolist press 1 or 2 to exit'),10);
+    let userTodoItem;
+    let userOption = parseInt(prompt('To added Items to your todolist press 1 or 2 to exit'),10); 
 
-switch (userOption) {
+    switch (userOption) {
     case 1:
-    userInput = prompt("Enter your todo Item"); 
-    arr2.push(userInput);
-    console.log(`You added "${arr2[arr2.length - 1]}" to your to do list`);
-    addItems(arr2);
+    userTodoItem = prompt("Enter your todo Item"); 
+    let correct = userTodoItem;
+   correct.toLocaleLowerCase().trim();
+   
+   checkDup(arr2,correct);
         break;
 
     case 2:
@@ -27,11 +28,29 @@ switch (userOption) {
     default:
         break;
 }
-userOption == 1
+//userOption == 1
 
 //console.log(arr2);
 }
 
+function checkDup(curArray,userTodo) {
+    let exist = false;
+    let index = curArray.indexOf(userTodo);
+
+    if(index == -1){
+    
+        //exist = false;
+        curArray.push(userTodo);
+        console.log(`You added "${curArray[curArray.length - 1]}" to your to do list`);
+        addItems(curArray);
+    
+    }
+   
+    else {
+        console.log(`Todo Item ${userTodo} is already in your Todo list`);        
+    }    
+   
+}
 addItems(todolist);
 
 console.log(todolist);
