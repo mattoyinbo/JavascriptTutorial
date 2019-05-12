@@ -1,49 +1,54 @@
 
 let todoList = ['Pray','Study','seek','find','God\'s Favor'];
+
+for(let j = 0; j<todoList.length;j++){
+    todoList[j] = todoList[j].trim().toLowerCase();
+}
+
+
 programStart();
 
+
+
+//function to add, update or remove items from todo Array
 function programStart()
 {
 
-let userOption = prompt("Enter 1 to delete, 2 to update, 3 to remove items from your Todo list or 4 to view current list");
+//get user input values bewtween 1 to 4
+let userOption = prompt("Enter 1 to Add, 2 to Delete, 3 to Update items from your Todo list or 4 to view current list");
 
 userOption = parseInt(userOption.trim(),10);
 
 // get userinputs ranging from 1 to 4 and proceed based instructions below
+
 switch (userOption) {
-    case 1:
+    case 1://Add items to todolist
     let userInput =prompt('Enter todo Item to add to array');
-    addTodolist(todoList,userInput);        
+    addTodolist(todoList,userInput); //function call to add items to Todolist        
         
     break;
     
-    case 2:
-    let userInput2 = prompt("Enter Item to delete ");
-    removeTodolist(todoList,userInput2);
+    case 2: //delete items from todo list
+    removeTodolist(todoList);
         break;
 
-    case 3:
+    case 3: //update items in todo list
     updateTodolist();
         break;
 
     case 4:
-    if(todoList.length < 1){
-      alert("You currently have no Items in your Todo list")
-    }
-    else{
-    alert(`You have the following todo items: ${todoList}`)
-    console.log(todoList);
-    }
+    showCurItems(todoList);
     break;
 
     default:
     alert("Invalid option");
     
         break;
-}
+} //end switch case statement
 
-}
-// function to add items to todo Array
+} //end of program start function
+
+// function to add items to todo List
 function addTodolist(todoArray,addItem){
     todoArray.push(addItem);
     for (let i = 0; i<todoArray.length; i++){
@@ -52,22 +57,50 @@ function addTodolist(todoArray,addItem){
     
 }
 }
-// function to delete items from todo Array
-function removeTodolist(todoArray2,deleteItem){
-    for (let i = 0; i<todoArray2.length; i++){
-        
-        console.log(`List of current items : ${i + 1}: ${todoArray2[i]} `);
-        
-    }  
-     let  popItem = todoArray2.pop();
-    console.log(`${popItem} was deleted from your Todolist`);
+// function to delete items from todo List
+function removeTodolist(todoArray2){
+    showCurItems(todoArray2);
+
+    let userInput2 = prompt("Enter Item to delete");
     
-for (let i = 0; i<todoArray2.length; i++){
-        
-    console.log(`list of updated Item: ${i + 1}: ${todoArray2[i]} `);
+    userInput2.trim().toLowerCase;
     
+    let deleteIndex = todoArray2.indexOf(userInput2);
+    
+if(deleteIndex<0){
+    alert("Item does not exist in Todo list");
+    removeTodolist(todoArray2);
 }
+
+else{
+     let  popItem = todoArray2.splice(deleteIndex,1);
+     alert(`${popItem} was deleted from your Todolist`);
+    console.log(`${popItem} was deleted from your Todolist`);
+    showCurItems(todoArray2);    
+    }
+}
+
+//function to display current Items in todolist
+function showCurItems(currTodoList){
+    
+    if(currTodoList.length == 0){
+            alert("You currently have no Items in your Todo list")
+          }
+    
+    else{
+
+    let currItem = [];
+    
+    //loop through array to get list of current Todo list
+    for (let i = 0; i<currTodoList.length; i++){
+        currItem[i] = (`${i + 1}: ${currTodoList[i]} `);
+    } 
+     alert(`Current Items in todo list ${currItem} `);
+      console.log(currItem);
+   }
 }
 
 // function to update items in todo Arrays
-function updateTodolist(){}
+function updateTodolist(){
+
+}
