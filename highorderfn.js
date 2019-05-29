@@ -11,35 +11,9 @@ const companies = [
   ];
   
 
-const ages = [4, 12, 24, 48, 5];
+let ages = [4, 12, 24, 48, 5, 54, 21, 44, 61, 13, 15, 45, 25, 64, 32];
 
-const name = ['Face','Tunde','Tunde','Femi','bablo','bablo','bablo'];
+let company = companies.filter((comp)=> {return comp.start >= 1980 && comp.end <= 2010
+&& comp.category === 'Retail'});
 
-
-//retunr distinct names
-const distinctVal = name.reduce((acc,curr) => {
-console.log(curr);
-if(acc.indexOf(curr) === -1){
-  acc.push(curr);
-}
-
-  return acc
-},[])
-
-console.log(distinctVal);
-
-//ruturn total number of names.
-
-const totalObj = name.reduce((total,name) =>{
-   //total[name] = 1;
-if (total[name]){
-   total[name] += 1; 
-}
-else{
-
-  total[name] = 1;
-}
-  return total;
-},{})
-
-console.log(totalObj);
+console.log(company);
