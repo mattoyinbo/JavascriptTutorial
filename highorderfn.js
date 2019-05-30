@@ -17,3 +17,17 @@ let company = companies.filter((comp)=> {return comp.start >= 1980 && comp.end <
 && comp.category === 'Retail'});
 
 console.log(company);
+
+
+
+
+// chaining Array Iterators
+const oldCompanies = companies.filter((element) => {
+    return element.start >= 1980  && element.end <= 1999
+  }).map((element2) => { element2.category = 'closed in 1980\s';
+  return (element2.name +' '+ element2.start + ' ' + element2.category);});
+  
+  console.log(oldCompanies);
+  
+  console.log(companies)
+  
