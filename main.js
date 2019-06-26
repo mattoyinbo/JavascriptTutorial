@@ -1,9 +1,27 @@
-let heading = document.getElementById('header');
 
-heading.style.backgroundColor = 'red';
+//createElement('element')
+//createTextNode('text content')
+//element.appendChild(childElement);
+const result = document.querySelector('#result');
+// create empty element
+const bodyDiv = document.createElement('div');
+// create text node
+const text = document.createTextNode('body div');
+//add text node
+bodyDiv.appendChild(text);
+// document.body.appendChild(bodyDiv);
+// create empty element
+const resultLi = document.createElement('li');
+// create text node
+const textContent = document.createTextNode('result li');
+//add text node
+resultLi.appendChild(textContent);
+resultLi.classList.add('show');
+//add to to result
+result.appendChild(resultLi);
+console.log(result.children);
 
-let btn = document.getElementById('btn');
-btn.style.backgroundImage = "url('images.jpg')";
-btn.style.color = 'red';
-console.log(heading);
-console.log(btn);
+// insertBefore
+document.body.insertBefore(bodyDiv, result);
+//replace child
+result.replaceChild(bodyDiv, resultLi);
