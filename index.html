@@ -10,19 +10,31 @@
  <meta http-equiv="X-UA-Compatible" content="ie=edge">
  <title>Javacript Tutorial</title>
  <style>
-  .show {
+  .special {
    font-size: 3rem;
-   background: blue;
+   background: rgb(24, 158, 19);
    color: white;
+  }
+
+  .show{
+    display: block;
+  }
+
+  .hide{
+    display: none;
   }
  </style>
 </head>
 
 <body>
- <div id="result">
-  <div class="show">i'm the child of result</div>
- </div>
- <script src="app.js"></script>
+
+  <form id="form">
+    <input type="text" name="" id="name" >
+    <input type="password" name="" id="password">
+    <input type="submit" value="submit">
+  </form>
+
+  <script src="main.js"></script>
 </body>
 
 </html>
